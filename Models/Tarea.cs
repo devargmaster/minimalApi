@@ -16,7 +16,7 @@ public class Tarea
     public virtual Categoria? Categoria { get; set; }
     public DateTime FechaCreacion { get; set; }
     [NotMapped]
-    public string  Resumen { get; set; }
+    public string  Resumen { get; set; }=string.Empty;
 }
 public enum Prioridad
 {

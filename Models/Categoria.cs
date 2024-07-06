@@ -8,8 +8,8 @@ namespace MinimalApi.Models
         public Guid Id { get; set; }
         [Required]
         [MaxLength(150), MinLength(3)]
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
+        public string Nombre { get; set; }=string.Empty;
+        public string Descripcion { get; set; }=string.Empty;
 
         public virtual ICollection<Tarea> Tareas { get; set; } = new List<Tarea>();
 
