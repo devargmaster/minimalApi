@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MinimalApi;
 
@@ -11,9 +12,11 @@ using MinimalApi;
 namespace minimalApi.Migrations
 {
     [DbContext(typeof(TareasContext))]
-    partial class TareasContextModelSnapshot : ModelSnapshot
+    [Migration("20240706214847_ColumnPesoCategoria")]
+    partial class ColumnPesoCategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,29 +47,6 @@ namespace minimalApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categoria", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8e3a0809-7b6f-4d3e-9e0b-7483560ad855"),
-                            Descripcion = "Tareas de trabajo",
-                            Nombre = "Trabajo",
-                            Peso = 1
-                        },
-                        new
-                        {
-                            Id = new Guid("4e61e1f2-3062-4a6a-a565-0570e25423b6"),
-                            Descripcion = "Tareas personales",
-                            Nombre = "Personal",
-                            Peso = 2
-                        },
-                        new
-                        {
-                            Id = new Guid("d02f42dd-86e7-49df-8b21-af25e3ca71f0"),
-                            Descripcion = "Tareas de estudio",
-                            Nombre = "Estudio",
-                            Peso = 3
-                        });
                 });
 
             modelBuilder.Entity("MinimalApi.Models.Tarea", b =>
@@ -103,38 +83,6 @@ namespace minimalApi.Migrations
                     b.HasIndex("CategoriaId");
 
                     b.ToTable("Tarea", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            TareaId = new Guid("9c7309e2-bcfa-4070-83a2-2e6c90cff311"),
-                            CategoriaId = new Guid("8e3a0809-7b6f-4d3e-9e0b-7483560ad855"),
-                            Completada = false,
-                            Descripcion = "Reunión de trabajo",
-                            FechaCreacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PrioridadTarea = 2,
-                            Titulo = "Reunión"
-                        },
-                        new
-                        {
-                            TareaId = new Guid("037899bd-8beb-49b4-a938-a125c5ef6418"),
-                            CategoriaId = new Guid("4e61e1f2-3062-4a6a-a565-0570e25423b6"),
-                            Completada = false,
-                            Descripcion = "Ir a la panadería",
-                            FechaCreacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PrioridadTarea = 1,
-                            Titulo = "Comprar pan"
-                        },
-                        new
-                        {
-                            TareaId = new Guid("3924db39-7857-4459-923d-1bfee0600d84"),
-                            CategoriaId = new Guid("d02f42dd-86e7-49df-8b21-af25e3ca71f0"),
-                            Completada = false,
-                            Descripcion = "Estudiar C# con Visual Studio",
-                            FechaCreacion = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            PrioridadTarea = 3,
-                            Titulo = "Estudiar C#"
-                        });
                 });
 
             modelBuilder.Entity("MinimalApi.Models.Tarea", b =>

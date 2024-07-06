@@ -12,6 +12,6 @@ namespace MinimalApi.Models
         public string Descripcion { get; set; }=string.Empty;
 
         public virtual ICollection<Tarea> Tareas { get; set; } = new List<Tarea>();
-
+        public int Peso { get; set; }
     }
 }

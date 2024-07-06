@@ -15,5 +15,10 @@ app.MapGet("/dbconexion", ([FromServices] TareasContext dbContext) =>
     dbContext.Database.EnsureCreated();
     return Results.Ok("Base de datos creada: " + dbContext.Database.IsInMemory());
 });
+app.MapGet("/api/tareas",async ([FromServices] TareasContext dbContext) =>
+{
+    var tareas = await dbContext.Tareas.ToListAsync();
+    return Results.Ok(tareas);
+});
 
 app.Run();

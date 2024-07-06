@@ -131,7 +131,8 @@ dist
 
 # Ignore DLL files in bin directory
 bin/**/*.dll
-
+*.dll
+*.pdb
 # Ignore other build artifacts in bin and obj directories
 bin/
 obj/
